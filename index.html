@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PIXELES - Arcade Art</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Rajdhani:wght@500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="scanlines"></div>
+    <div class="glitch-overlay"></div>
+
+    <div class="container">
+        <header>
+            <h1 class="glitch" data-text="PIXELES">PIXELES</h1>
+            <p class="subtitle">20 GAME MODES // ARCADE COLLECTION</p>
+        </header>
+
+        <div id="main-menu" class="screen active">
+
+            <div class="category-title">🔥 CORE & ACTION</div>
+            <div class="menu-grid">
+                <button class="menu-btn" onclick="startGame('arcade')">🕹️ ARCADE</button>
+                <button class="menu-btn" onclick="startGame('virus')">🦠 VIRUS</button>
+                <button class="menu-btn" onclick="startGame('rain')">☔ RAIN</button>
+                <button class="menu-btn" onclick="startGame('flashlight')">🔦 FLASHLIGHT</button>
+                <button class="menu-btn" onclick="startGame('hunter')">🎯 HUNTER</button>
+                <button class="menu-btn" onclick="startGame('rotation')">🔄 ROTATION</button>
+            </div>
+
+            <div class="category-title">🧩 LOGIC & PUZZLE</div>
+            <div class="menu-grid">
+                <button class="menu-btn" onclick="startGame('memory')">🧠 MEMORY</button>
+                <button class="menu-btn" onclick="startGame('mirror')">🪞 MIRROR</button>
+                <button class="menu-btn" onclick="startGame('defusal')">💣 DEFUSAL</button>
+                <button class="menu-btn" onclick="startGame('picross')">🔢 PICROSS</button>
+                <button class="menu-btn" onclick="startGame('colormix')">🎨 COLOR MIX</button>
+                <button class="menu-btn" onclick="startGame('sculptor')">🗿 SCULPTOR</button>
+                <button class="menu-btn" onclick="startGame('negative')">🌗 NEGATIVE</button>
+                <button class="menu-btn" onclick="startGame('silhouette')">👥 SILHOUETTE</button>
+            </div>
+
+            <div class="category-title">🎨 ARTISTIC & SKILL</div>
+            <div class="menu-grid">
+                <button class="menu-btn" onclick="startGame('creative')">✏️ CREATIVE</button>
+                <button class="menu-btn" onclick="startGame('1bit')">💾 1-BIT</button>
+                <button class="menu-btn" onclick="startGame('kaleidoscope')">💠 KALEIDO</button>
+                <button class="menu-btn" onclick="startGame('blind')">🙈 BLIND</button>
+                <button class="menu-btn" onclick="startGame('paletteswap')">🌈 SWAP</button>
+                <button class="menu-btn" onclick="startGame('sequence')">🎹 SEQUENCE</button>
+            </div>
+
+        </div>
+
+        <div id="game-screen" class="screen">
+            <div class="hud">
+                <div class="score-box">SCORE: <span id="score">0</span></div>
+                <div class="timer-box">TIME: <span id="timer">30</span></div>
+                <div class="lives-box" id="lives">❤️❤️❤️</div>
+            </div>
+
+            <div class="game-container-row">
+                <!-- Área de Juego -->
+                <div class="game-area">
+                    <canvas id="pixel-canvas" width="512" height="512"></canvas>
+                </div>
+
+                <!-- Panel Lateral -->
+                <div class="side-panel">
+                    <div class="target-preview" id="target-container">
+                        <h3>TARGET</h3>
+                        <canvas id="target-canvas" width="128" height="128"></canvas>
+                    </div>
+
+                    <div class="tools-panel">
+                        <div class="palette" id="palette"></div>
+                        <div class="tools">
+                            <button class="tool-btn active" data-tool="pencil">✏️</button>
+                            <button class="tool-btn" data-tool="bucket">🪣</button>
+                            <button class="tool-btn" data-tool="eraser">🧼</button>
+                        </div>
+                    </div>
+
+                    <div id="instruction-text"
+                        style="font-size: 0.8rem; color: #aaa; text-align: center; margin-bottom: 5px;"></div>
+                    <button id="action-btn" class="action-btn" onclick="checkSolution()">SUBMIT</button>
+                    <button class="action-btn" style="margin-top: 10px; background: #333; border-color: #666;"
+                        onclick="location.reload()">EXIT</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="modes.js"></script>
+    <script src="game.js"></script>
+</body>
+
+</html>
